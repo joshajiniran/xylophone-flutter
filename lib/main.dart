@@ -9,62 +9,35 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$num.wav');
   }
 
+  Widget buildKey({int num, String text, Color col}) {
+    return Expanded(
+      child: FlatButton(
+        child: Text(text),
+        color: col,
+        onPressed: () {
+          playSound(num);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              FlatButton(
-                child: Text(''),
-                color: Colors.blue,
-                onPressed: () {
-                  playSound(1);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.red,
-                onPressed: () {
-                  playSound(2);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.green,
-                onPressed: () {
-                  playSound(3);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.yellow,
-                onPressed: () {
-                  playSound(4);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.purple,
-                onPressed: () {
-                  playSound(5);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.pink,
-                onPressed: () {
-                  playSound(6);
-                },
-              ),
-              FlatButton(
-                child: Text(''),
-                color: Colors.orange,
-                onPressed: () {
-                  playSound(7);
-                },
-              ),
+              buildKey(num:1, text:'doh', col: Colors.blue),
+              buildKey(num:2, text:'reh', col: Colors.red),
+              buildKey(num:3, text:'meh', col: Colors.yellow),
+              buildKey(num:4, text:'fah', col: Colors.green),
+              buildKey(num:5, text:'soh', col: Colors.white),
+              buildKey(num:6, text:'lah', col: Colors.purple),
+              buildKey(num:7, text:'teh', col: Colors.indigo),
             ],
           ),
         ),
