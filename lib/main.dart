@@ -9,14 +9,12 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$num.wav');
   }
 
-  Widget buildKey({int num, String text, Color col}) {
+  Expanded buildKey({int num, String text, Color col}) {
     return Expanded(
       child: FlatButton(
         child: Text(text),
         color: col,
-        onPressed: () {
-          playSound(num);
-        },
+        onPressed: () => playSound(num),
       ),
     );
   }
